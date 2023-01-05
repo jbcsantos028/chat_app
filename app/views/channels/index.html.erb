@@ -1,0 +1,21 @@
+<div id="chatroom_container" class="row bg-dark text-light">
+  <div id="side_panel" class="col-md-4 col-sm-4">
+    <h5><%= current_user.email %></h5>
+    <h4>Users</h4>
+    <%= turbo_stream_from "users" %>
+    <div id="users">
+      <%= render @users %>
+    </div>
+    <h4>Channels</h4>
+    <%= turbo_stream_from "channels" %>
+    <div id="channels">
+      <%= render @channels %>
+    </div>
+    <%= render "layouts/new_channel_form" %>
+  </div>
+  <div id="channel_container" class="col-md-8 col-sm-8 bg-dark text-light">
+    <% if @singe_channel %>
+      <h4 class="text-center"><%= @single_channel.name %></h4>
+    <% end %>
+  </div>
+</div>
