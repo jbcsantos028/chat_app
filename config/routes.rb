@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :channels
+  resources :channels do
+    resources :messages
+  end
   root 'pages#home'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
